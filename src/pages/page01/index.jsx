@@ -27,7 +27,7 @@ export default function Teste() {
             </Button>
           </Div>
             <img
-                className="w-full h-[461px] bg-center bg-no-repeat bg-cover z-10"
+                className="w-full h-[460px] bg-center bg-no-repeat bg-cover z-10"
                 src="/assets/img-pages/img-1-inicial.png"
                 alt="Homem sorrindo com uma casa na mão"
                 width={100}

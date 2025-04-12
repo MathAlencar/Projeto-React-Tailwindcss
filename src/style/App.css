@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+      @apply p-0;
+    }
+  }
+  @font-face {
+    font-family: "latoBold";
+    src: url("../fonts/Lato/Lato-Bold.ttf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "latoRegular";
+    src: url("../fonts/Lato/Lato-Regular.ttf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "latoThin";
+    src: url("../fonts/Lato/Lato-Thin.ttf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "GraphikBold";
+    src: url("../fonts/graphik/Graphik-Bold-Trial.otf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Graphik";
+    src: url("../fonts/graphik/Graphik-Regular-Trial.otf") format("opentype");
+    font-style: normal;
+    font-display: swap;
+  }
+  

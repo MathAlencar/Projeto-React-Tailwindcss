@@ -9,7 +9,7 @@ export default function NavBar() {
       <nav className="p-4 flex font-latoRegular">
         <Link to="/home">
           <img
-            src="assets/logo/logo-libra-credito.png"
+            src="assets/logo/logo-libra-credito.webp"
             alt="logo"
             className="mt-3"
             width="160"

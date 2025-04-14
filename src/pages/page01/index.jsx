@@ -86,7 +86,7 @@ export default function Teste() {
           </Div>
             <img
                 className="w-full h-[400px] bg-center bg-no-repeat bg-cover z-10"
-                src="/assets/img-pages/img-1-inicial.png"
+                src="/assets/img-pages/img-1-inicial"
                 alt="Homem sorrindo com uma casa na mão"
                 width={100}
                 height={480}
@@ -164,7 +164,7 @@ export default function Teste() {
           </Title>
         </Div>
         <Div>
-          <BlockMidia img={'./assets/logo/Estadao.png'}>
+          <BlockMidia img={'./assets/logo/Estadao'}>
             <Paragrafo isStyle className="text-primary">
               Libra simplifica processo para{' '}
               <span className="font-latoBold text-primary">
@@ -172,7 +172,7 @@ export default function Teste() {
               </span>
             </Paragrafo>
           </BlockMidia>
-          <BlockMidia img={'./assets/logo/g1.png'}>
+          <BlockMidia img={'./assets/logo/g1'}>
             <Paragrafo isStyle className="text-primary">
               A Libra simplifica tem soluções financeiras{' '}
               <span className="font-latoBold text-primary">
@@ -180,7 +180,7 @@ export default function Teste() {
               </span>
             </Paragrafo>
           </BlockMidia>
-          <BlockMidia img={'./assets/logo/acidade.png'}>
+          <BlockMidia img={'./assets/logo/acidade'}>
             <Paragrafo isStyle className="text-primary">
               A Libra Crédito oferece{' '}
               <span className="font-latoBold text-primary">
@@ -188,7 +188,7 @@ export default function Teste() {
               </span>
             </Paragrafo>
           </BlockMidia>
-          <BlockMidia img={'./assets/logo/R.png'}>
+          <BlockMidia img={'./assets/logo/R'}>
             <Paragrafo isStyle className="text-primary">
               Libra simplifica processo para{' '}
               <span className="font-latoBold text-primary">
@@ -296,7 +296,7 @@ export default function Teste() {
         <Div>
           <BlockMidia
             className="bg-primary-gray rounded-xl m-2"
-            img={'./assets/logo/foguete.png'}
+            img={'./assets/logo/foguete'}
           >
             <Paragrafo isStyle className="text-primary">
               Investiram em seus negócios, com nosso{' '}
@@ -310,7 +310,7 @@ export default function Teste() {
             </Paragrafo>
           </BlockMidia>
           <BlockMidia
-            img={'./assets/logo/casa.png'}
+            img={'./assets/logo/casa'}
             className="bg-primary-gray rounded-xl m-2"
           >
             <Paragrafo isStyle className="text-primary">
@@ -321,7 +321,7 @@ export default function Teste() {
             </Paragrafo>
           </BlockMidia>
           <BlockMidia
-            img={'./assets/logo/bomba.png'}
+            img={'./assets/logo/bomba'}
             className="bg-primary-gray rounded-xl m-2"
           >
             <Paragrafo isStyle className="text-primary">

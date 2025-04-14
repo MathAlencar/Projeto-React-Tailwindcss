@@ -50,6 +50,9 @@ export function BlockMidia({ children, img, className = '' }) {
         src={img}
         alt="Imagem"
         className="w-24 h-24 object-cover border-gray-300"
+        width={100}
+        height={480}
+        loading="eager"
       />
       <div className="flex-1 text-gray-800 text-base leading-snug">
         {children}
@@ -129,6 +132,9 @@ export function StepSimulacao({ children, img, number }) {
             src={img}
             alt="Homem olhando o celular"
             className="object-cover w-full h-full rounded-3xl"
+            width={100}
+            height={480}
+            loading="eager"
           />
         </div>
       </div>

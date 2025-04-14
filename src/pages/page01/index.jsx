@@ -86,7 +86,7 @@ export default function Teste() {
           </Div>
             <img
                 className="w-full h-[400px] bg-center bg-no-repeat bg-cover z-10"
-                src="/assets/img-pages/img-1-inicial"
+                src="/assets/img-pages/img-1-inicial.webp"
                 alt="Homem sorrindo com uma casa na mão"
                 width={100}
                 height={480}
@@ -164,7 +164,7 @@ export default function Teste() {
           </Title>
         </Div>
         <Div>
-          <BlockMidia img={'./assets/logo/Estadao'}>
+          <BlockMidia img={'./assets/logo/Estadao.webp'}>
             <Paragrafo isStyle className="text-primary">
               Libra simplifica processo para{' '}
               <span className="font-latoBold text-primary">
@@ -172,7 +172,7 @@ export default function Teste() {
               </span>
             </Paragrafo>
           </BlockMidia>
-          <BlockMidia img={'./assets/logo/g1'}>
+          <BlockMidia img={'./assets/logo/g1.webp'}>
             <Paragrafo isStyle className="text-primary">
               A Libra simplifica tem soluções financeiras{' '}
               <span className="font-latoBold text-primary">
@@ -180,7 +180,7 @@ export default function Teste() {
               </span>
             </Paragrafo>
           </BlockMidia>
-          <BlockMidia img={'./assets/logo/acidade'}>
+          <BlockMidia img={'./assets/logo/acidade.webp'}>
             <Paragrafo isStyle className="text-primary">
               A Libra Crédito oferece{' '}
               <span className="font-latoBold text-primary">
@@ -188,7 +188,7 @@ export default function Teste() {
               </span>
             </Paragrafo>
           </BlockMidia>
-          <BlockMidia img={'./assets/logo/R'}>
+          <BlockMidia img={'./assets/logo/R.webp'}>
             <Paragrafo isStyle className="text-primary">
               Libra simplifica processo para{' '}
               <span className="font-latoBold text-primary">
@@ -296,7 +296,7 @@ export default function Teste() {
         <Div>
           <BlockMidia
             className="bg-primary-gray rounded-xl m-2"
-            img={'./assets/logo/foguete'}
+            img={'./assets/logo/foguete.webp'}
           >
             <Paragrafo isStyle className="text-primary">
               Investiram em seus negócios, com nosso{' '}
@@ -310,7 +310,7 @@ export default function Teste() {
             </Paragrafo>
           </BlockMidia>
           <BlockMidia
-            img={'./assets/logo/casa'}
+            img={'./assets/logo/casa.webp'}
             className="bg-primary-gray rounded-xl m-2"
           >
             <Paragrafo isStyle className="text-primary">
@@ -321,7 +321,7 @@ export default function Teste() {
             </Paragrafo>
           </BlockMidia>
           <BlockMidia
-            img={'./assets/logo/bomba'}
+            img={'./assets/logo/bomba.webp'}
             className="bg-primary-gray rounded-xl m-2"
           >
             <Paragrafo isStyle className="text-primary">
@@ -338,16 +338,16 @@ export default function Teste() {
           Passo a passo para conseguir
           <span className="text-secondary-blue"> crédito barato</span>
         </TitleSub>
-        <StepSimulacao img={'./assets/img-pages/img-3-inicial.webp'} number="1">
+        <StepSimulacao img={'/assets/img-pages/img-3-inicial.webp'} number="1">
           Simulação de valores
         </StepSimulacao>
-        <StepSimulacao img={'./assets/img-pages/img-3-inicial.webp'} number="2">
+        <StepSimulacao img={'/assets/img-pages/img-3-inicial.webp'} number="2">
           Análise de crédito
         </StepSimulacao>
-        <StepSimulacao img={'./assets/img-pages/img-3-inicial.webp'} number="3">
+        <StepSimulacao img={'/assets/img-pages/img-3-inicial.webp'} number="3">
           Avaliação de imóvel
         </StepSimulacao>
-        <StepSimulacao img={'./assets/img-pages/img-3-inicial.webp'} number="4">
+        <StepSimulacao img={'/assets/img-pages/img-3-inicial.webp'} number="4">
           Proposta final e assinatura
         </StepSimulacao>
       </BlocoAnimadoMotion>

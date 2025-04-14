@@ -28,7 +28,7 @@ export default function Teste() {
           </Div>
             <img
                 className="w-full h-[460px] bg-center bg-no-repeat bg-cover z-10"
-                src="/assets/img-pages/img-1-inicial.png"
+                src="/assets/img-pages/img-1-inicial.webp"
                 alt="Homem sorrindo com uma casa na mão"
                 width={100}
                 height={480}

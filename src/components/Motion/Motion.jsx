@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+
 
 export function BlocoAnimadoMotion({ children, className = '' }) {
   return (
@@ -23,15 +25,15 @@ export function AnimatedBar({
   labelValue,
 }) {
   const StyleLabel = TypeLabel
-    ? 'block mb-1 text-blue font-latoBold font-bold text-xl'
-    : 'block mb-1 text-blue-red font-latoBold font-bold text-xl';
+    ? 'block mb-1 text-primary font-latoBold font-bold text-xl'
+    : 'block mb-1 text-primary-red font-latoBold font-bold text-xl';
 
   return (
     <div className="mb-4">
       {/* Rótulo */}
       <span className={`${StyleLabel}`}>
         {label}
-        <span className="text-blue font-latoThin font-semibold">
+        <span className="text-primary font-latoThin font-semibold">
           {labelValue}
         </span>
       </span>
@@ -51,4 +53,43 @@ export function AnimatedBar({
   );
 }
 
+export function CarrosselMensagens({ mensagens }) {
+  const [index, setIndex] = useState(0);
+
+  const proxima = () => {
+    setIndex((prev) => (prev + 1) % mensagens.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      proxima();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full max-w-xl">
+      {/* Botão fora do box com overflow-hidden */}
+      <div className="rounded-full p-[2px] h-auto bg-secondary-blue absolute -right-[15px] top-1/2 -translate-y-1/2 z-20 cursor-pointer transition-transform hover:scale-110">
+        <FaArrowRight onClick={proxima} className="text-primary text-2xl" />
+      </div>
+
+      {/* Carrossel que faz a transição */}
+      <div className="relative overflow-hidden w-full h-[10rem] bg-gray-100 rounded-xl">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={mensagens[index].id}
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -100, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute w-full text-left p-[10px]"
+          >
+            {mensagens[index].conteudo}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
 

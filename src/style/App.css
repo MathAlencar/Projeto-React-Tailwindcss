@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 @layer base {
@@ -41,5 +39,16 @@
     src: url("../fonts/graphik/Graphik-Regular-Trial.otf") format("opentype");
     font-style: normal;
     font-display: swap;
+  }
+
+  @theme {
+    --color-primary: #003399;
+    --color-secondary-blue: #66cccc;
+    --color-primary-red: #ff6666;
+    --color-primary-green: #33cc99;
+    --color-primary-gray: #EAEAEA;
+
+
+    --font-lato-thin: "latoThin", sans-serif; 
   }
   

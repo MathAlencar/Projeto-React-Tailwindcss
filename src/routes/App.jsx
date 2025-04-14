@@ -6,7 +6,7 @@ export default function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/home" element={<Home/>}></Route>
+      <Route path="/" element={<Home/>}></Route>
     </Routes>
   )
 }

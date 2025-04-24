@@ -88,7 +88,7 @@ export default function Home() {
           </Div>
           <img
                 className="w-full h-[400px] bg-center bg-no-repeat bg-cover z-10 xsee:h-[300px] xse:h-[500px] xs:h-[800px]"
-                src="/assets/img-pages/img-1-inicial.png"
+                src="/assets/img-pages/img-1-inicial.webp"
                 alt="Homem sorrindo com uma casa na mão"  
                 width={100}
                 height={480}

@@ -2,9 +2,9 @@ import { FaPlus, FaTimes } from 'react-icons/fa';
 import { useState } from 'react';
 
 export function Title({ children, className = '', isStyle, isBold }) {
-  const baseStyle = isStyle ? 'mb-4 text-4xl md:text-8xl xl:text-9xl' : '';
+  const baseStyle = isStyle ? 'mb-4 text-4xl xse:text-6xl md:text-8xl' : '';
   const BoldOrNot = isBold
-    ? 'font-latoBold text-4xl md:text-8xl xl:text-9xl'
+    ? 'font-latoBold'
     : 'font-latoThin font-semibold';
   return (
     <h1 className={`${baseStyle} ${className} ${BoldOrNot}`}>{children}</h1>
@@ -13,7 +13,7 @@ export function Title({ children, className = '', isStyle, isBold }) {
 
 export function Button({ children, BackGroundType, isHover }) {
   const baseStyle =
-    'flex items-center pt-3 pb-3 pr-4 pl-4 box-border justify-center rounded-full text-2xl leading-5 duration-300 ease-in';
+    'flex items-center pt-3 pb-3 pr-4 pl-4 box-border justify-center rounded-full text-2xl leading-5 duration-300 ease-in xse:text-3xl xse:p-[25px]';
   const hover = isHover ? 'hover:scale-105' : '';
   const variant = BackGroundType
     ? 'font-latoThin bg-primary-red text-white'

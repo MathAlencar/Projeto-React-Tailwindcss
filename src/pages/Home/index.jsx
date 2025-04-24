@@ -7,14 +7,16 @@ import {
   Paragrafo,
   Mensagem,
   StepSimulacao
-} from '../../components/Paragrafos/Paragrafos';
+} from '../../components/Componentes_menu/Menu';
 import {
   BlocoAnimadoMotion,
   AnimatedBar,
   CarrosselMensagens
 } from '../../components/Motion/Motion';
+import Conteiner from '../../components/Conteiner';
 
-export default function Teste() {
+export default function Home() {
+
   const mensagens = [
     {
       id: 'simulacao',
@@ -70,12 +72,12 @@ export default function Teste() {
   ];
 
   return (
-    <div>
-      <BlocoAnimadoMotion>
-          <Div isStyleRight className="text-right text-avocado-500">
+    <Conteiner>
+       <BlocoAnimadoMotion className='xsee:flex xsee:flex-row-reverse'>
+          <Div isStyleRight className="text-right xsee:flex xsee:justify-center xsee:pl-8">
             <Title isBold isStyle className="text-primary">
               Empréstimo com Garantia de imóvel
-              <span className="font-latoThin italic font-semibold">
+              <span className="font-latoThin italic font-semibold tracking-wide">
                 {' '}
                 com flexibilidade
               </span>
@@ -84,16 +86,16 @@ export default function Teste() {
               SIMULE AGORA
             </Button>
           </Div>
-            <img
-                className="w-full h-[400px] bg-center bg-no-repeat bg-cover z-10"
-                src="/assets/img-pages/img-1-inicial.webp"
-                alt="Homem sorrindo com uma casa na mão"
+          <img
+                className="w-full h-[400px] bg-center bg-no-repeat bg-cover z-10 xsee:h-[300px] xse:h-[500px] xs:h-[800px]"
+                src="/assets/img-pages/img-1-inicial.png"
+                alt="Homem sorrindo com uma casa na mão"  
                 width={100}
                 height={480}
                 loading="eager"
             />
-      </BlocoAnimadoMotion>
-      <BlocoAnimadoMotion>
+      </BlocoAnimadoMotion> 
+        <BlocoAnimadoMotion>
         <Div isStyle className="text-center">
           <Title isStyle className="text-primary">
             O Crédito com as
@@ -113,7 +115,7 @@ export default function Teste() {
             height={480}
             loading="eager"
           />
-      </BlocoAnimadoMotion>
+      </BlocoAnimadoMotion> 
       <BlocoAnimadoMotion className="bg-primary-gray pt-4 pb-4">
         <TitleSub isStyle className="text-secondary-blue text-4xl ml-4 pr-16">
           O crédito da Libra
@@ -350,7 +352,7 @@ export default function Teste() {
         <StepSimulacao img={'/assets/img-pages/img-3-inicial.webp'} number="4">
           Proposta final e assinatura
         </StepSimulacao>
-      </BlocoAnimadoMotion>
-    </div>
+      </BlocoAnimadoMotion>  
+    </Conteiner>
   );
 }

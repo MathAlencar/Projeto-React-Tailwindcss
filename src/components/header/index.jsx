@@ -1,12 +1,14 @@
 import { FaBars, FaTimes } from 'react-icons/fa'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Container from '../Conteiner';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
   
     return (
-      <nav className="p-4 flex font-latoRegular">
+      <Container>
+        <nav className="p-4 flex font-latoRegular">
         <Link to="/home">
           <img
             src="assets/logo/logo-libra-credito.webp"
@@ -93,5 +95,6 @@ export default function NavBar() {
           </ul>
         </div>
       </nav>
+      </Container>
     );
   }

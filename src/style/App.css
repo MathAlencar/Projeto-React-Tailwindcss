@@ -48,6 +48,10 @@
     --color-primary-green: #33cc99;
     --color-primary-gray: #EAEAEA;
 
+    --breakpoint-xsee: 600px;
+    --breakpoint-xse: 900px;
+    --breakpoint-md: 1200px;
+    --breakpoint-xs: 1400px;
 
     --font-lato-thin: "latoThin", sans-serif; 
   }

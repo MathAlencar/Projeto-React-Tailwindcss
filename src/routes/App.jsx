@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import '../style/App.css';
 
-// lazy imports
 const Home = lazy(() => import('../pages/Home/index'));
 const Simulador = lazy(() => import('../pages/Simulador/index'));
 

@@ -21,7 +21,8 @@ export default function Home() {
     {
       id: 'simulacao',
       conteudo: (
-        <p className="text-primary text-[16px] font-latoThin font-semibold">
+        <p className="text-primary text-[16px] font-latoThin 
+        md:text-[32px]">
           “Conheci a Libra pelo Instagram e as conversas iniciais foram{' '}
           <span className="font-extrabold font-latoBold text-primary">
             rápidas e eficientes.
@@ -38,7 +39,8 @@ export default function Home() {
     {
       id: 'teste1',
       conteudo: (
-        <p className="text-primary text-[16px] font-latoThin font-semibold">
+        <p className="text-primary text-[16px] font-latoThin 
+        md:text-[32px]">
           “Conheci a Libra pelo Instagram e as conversas iniciais foram{' '}
           <span className="font-extrabold font-latoBold text-primary">
             rápidas e eficientes.
@@ -55,7 +57,8 @@ export default function Home() {
     {
       id: 'simulacao',
       conteudo: (
-        <p className="text-primary text-[16px] font-latoThin font-semibold">
+        <p className="text-primary text-[16px] font-latoThin
+        md:text-[32px]">
           “Conheci a Libra pelo Instagram e as conversas iniciais foram{' '}
           <span className="font-extrabold font-latoBold text-primary">
             rápidas e eficientes.
@@ -73,9 +76,9 @@ export default function Home() {
 
   return (
     <Conteiner>
-       <BlocoAnimadoMotion className='xsee:flex xsee:flex-row-reverse'>
+        <BlocoAnimadoMotion className='xsee:flex xsee:flex-row-reverse xse:h-[]'>
           <Div isStyleRight className="text-right xsee:flex xsee:justify-center xsee:pl-8">
-            <Title isBold isStyle className="text-primary">
+            <Title isBold isStyle className="text-primary text-4xl xse:text-6xl md:text-7xl">
               Empréstimo com Garantia de imóvel
               <span className="font-latoThin italic font-semibold tracking-wide">
                 {' '}
@@ -86,18 +89,25 @@ export default function Home() {
               SIMULE AGORA
             </Button>
           </Div>
-          <img
-                className="w-full h-[400px] bg-center bg-no-repeat bg-cover z-10 xsee:h-[300px] xse:h-[500px] xs:h-[800px]"
-                src="/assets/img-pages/img-1-inicial.webp"
+            <img
+                className="w-full h-[400px] z-10 xsee:h-[400px] xse:h-[550px] md:h-[700px] xs:h-[800px]"
+                src="/assets/img-pages/img-1-inicial.png"
                 alt="Homem sorrindo com uma casa na mão"  
                 width={100}
                 height={480}
                 loading="eager"
-            />
-      </BlocoAnimadoMotion> 
-        <BlocoAnimadoMotion>
-        <Div isStyle className="text-center">
-          <Title isStyle className="text-primary">
+              />
+          
+      </BlocoAnimadoMotion>   
+          <BlocoAnimadoMotion className="
+          xsee:flex 
+          xse:h-[600px]
+          xs:h-[820px]">
+        <Div isStyle className="text-center xsee:flex xsee:justify-center xsee:items-start xsee:text-left">
+          <Title isStyle className="text-primary text-4xl
+           xsee:text-5xl xsee:mb-8 
+           xse:text-6xl 
+           md:text-[85px] xs:text-[90px]">
             O Crédito com as
             <span className="text-primary-red font-latoBold">
               {' '}
@@ -108,23 +118,29 @@ export default function Home() {
           <Button isHover> SAIBA MAIS </Button>
         </Div>
         <img
-            className="w-full h-[460px] object-cover z-10"
+            className="w-full h-[460px] object-cover z-10 xsee:h-[400px] xse:h-[700px] xd:h-[550px] xs:h-[800px]"
             src="/assets/img-pages/img-2-inicial.webp"
             alt="Homem sorrindo com uma casa na mão"
             width={1280}
             height={480}
             loading="eager"
           />
-      </BlocoAnimadoMotion> 
-      <BlocoAnimadoMotion className="bg-primary-gray pt-4 pb-4">
-        <TitleSub isStyle className="text-secondary-blue text-4xl ml-4 pr-16">
+      </BlocoAnimadoMotion>   
+          <BlocoAnimadoMotion className="bg-primary-gray pt-4 pb-4 xsee:flex xsee:flex-row-reverse xse:h-[700px]">
+        <TitleSub isStyle className="text-secondary-blue text-4xl ml-4 pr-16 
+         xsee:text-5xl xsee:text-right xsee:pr-4
+         xse:text-5xl
+         md:text-6xl"
+         >
           O crédito da Libra
           <span className="font-latoBold font-bold">
             {' '}
             é sempre a melhor escolha:
           </span>
         </TitleSub>
-        <div className="p-4 w-[335px] bg-white rounded-r-[2.25rem] mt-8 mb-8">
+        <div className="p-4 w-[335px] bg-white rounded-r-[2.25rem] mt-8 mb-8
+        xsee:w-[1200px] xsee:bg-primary-gray
+        ">
           <AnimatedBar
             TypeLabel
             label="CGI Libra:"
@@ -157,15 +173,21 @@ export default function Home() {
             barColorClass="bg-primary"
           />
         </div>
-      </BlocoAnimadoMotion>
-      <BlocoAnimadoMotion>
-        <Div isStyle className="text-left">
-          <Title isStyle className="text-primary text-6xl ml-4">
+      </BlocoAnimadoMotion>   
+        <BlocoAnimadoMotion className='xse:h-[700px] flex justify-center items-center'>
+        <div>
+        <Div isStyle className="
+        xsee:items-start xsee:text-8xl
+        ">
+          <Title isStyle className="text-primary text-6xl ml-4
+          md:text-8xl">
             Libra na
             <span className="text-primary-red font-latoBold"> mídia{''}</span>:
           </Title>
         </Div>
-        <Div>
+        <Div className="
+        xsee:grid xsee:grid-cols-2 xsee:grid-rows-2
+        ">
           <BlockMidia img={'./assets/logo/Estadao.webp'}>
             <Paragrafo isStyle className="text-primary">
               Libra simplifica processo para{' '}
@@ -199,53 +221,45 @@ export default function Home() {
             </Paragrafo>
           </BlockMidia>
         </Div>
-      </BlocoAnimadoMotion>
-      <BlocoAnimadoMotion>
-        <Div className="bg-primary p-8">
+        </div>
+      </BlocoAnimadoMotion>  
+       <BlocoAnimadoMotion className='xsee:flex xsee:flex-row-reverse 
+       xsee:h-[600px]
+       md:h-[780px]'>
+       <Div className="bg-primary p-8 text-5xl
+        xsee:pt-36
+        md:text-6xl md:p-4 md:pt-52">
           <Title isBold isStyle className="text-white">
-            Crédito Seguro e{' '}
-            <span className="text-secondary-blue">simulação simplificada</span>
+            Prezamos a{' '}
+            <span className="text-secondary-blue">transparência</span>
           </Title>
-          <Paragrafo className="font-latoThin text-secondary-blue text-2xl">
+          <Paragrafo className="font-latoThin text-white text-2xl
+          md:text-4xl md:mt-4">
             A Libra Crédito não solicita nenhum tipo de valor
           </Paragrafo>
-          <Paragrafo className="font-latoThin text-secondary-blue text-2xl">
+          <Paragrafo className="font-latoThin text-white text-2xl
+          md:text-4xl">
             antecipado para aprovação de crédito
           </Paragrafo>
         </Div>
         <div
-          className="w-full h-[380px] bg-center p-4 bg-no-repeat bg-cover z-10"
+          className="w-full h-[380px] bg-no-repeat bg-cover z-10 
+          xsee:text-right xsee:h-[600px] xsee:bg-position-[center_right_-33rem]
+          md:bg-position-[center_right_-30rem] md:h-[780px]"
           style={{
-            backgroundImage: "url('./assets/img-pages/img-3-inicial.webp')",
+            backgroundImage: "url('./assets/img-pages/teste2.png')",
           }}
         >
-          <TitleSub
-            isBold
-            isStyle
-            className="text-primary relative z-20 pl-[8px] pt-2 text-4xl"
-          >
-            Quem
-          </TitleSub>
-          <TitleSub
-            isBold
-            isStyle
-            className="text-secondary-blue relative z-20 pl-[8px] text-4xl"
-          >
-            Conhece,
-          </TitleSub>
-          <TitleSub
-            isBold
-            isStyle
-            className="text-primary relative z-20 pl-[8px] text-4xl"
-          >
-            Confia
-          </TitleSub>
-          <Div className="flex justify-center mt-[30px]">
+        <Div className="flex w-full
+          xsee:items-end
+          md:mt-[0px]
+          ">
             <CarrosselMensagens mensagens={mensagens} />
-          </Div>
-        </div>
+          </Div> 
+          <div className=""></div>
+        </div> 
       </BlocoAnimadoMotion>
-      <BlocoAnimadoMotion className="flex flex-col items-start">
+      {/* <BlocoAnimadoMotion className="flex flex-col items-start">
         <div className="w-full p-4">
           <p className="text-4xl font-latoBold font-extrabold text-primary">
             Perguntas
@@ -281,8 +295,8 @@ export default function Home() {
             </p>
           </Mensagem>
         </div>
-      </BlocoAnimadoMotion>
-      <BlocoAnimadoMotion>
+      </BlocoAnimadoMotion> */}
+      {/* <BlocoAnimadoMotion>
         <Div isStyle className="text-left">
           <TitleSub isStyle className="text-primary text-6xl ml-4">
             Crédito com garantia de imóvel
@@ -334,8 +348,8 @@ export default function Home() {
             </Paragrafo>
           </BlockMidia>
         </Div>
-      </BlocoAnimadoMotion>
-      <BlocoAnimadoMotion className="flex flex-col items-start">
+      </BlocoAnimadoMotion> */}
+      {/* <BlocoAnimadoMotion className="flex flex-col items-start">
         <TitleSub isStyle className="text-primary text-4xl m-8">
           Passo a passo para conseguir
           <span className="text-secondary-blue"> crédito barato</span>
@@ -352,7 +366,7 @@ export default function Home() {
         <StepSimulacao img={'/assets/img-pages/img-3-inicial.webp'} number="4">
           Proposta final e assinatura
         </StepSimulacao>
-      </BlocoAnimadoMotion>  
+      </BlocoAnimadoMotion> */}
     </Conteiner>
   );
 }

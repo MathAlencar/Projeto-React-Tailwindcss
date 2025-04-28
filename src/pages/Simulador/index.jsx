@@ -1,11 +1,11 @@
 import Conteiner from '../../components/Conteiner';
-import apiSimulation from '../../services/axios';
 import { useState } from 'react';
-import { createdContactCardAPI } from '../../api/APIChamadas'
+import { createdContactCardAPI, callSimulation } from '../../api/APIChamadas'
 import BuscaCidades from '../../components/Components_simulador/inputCidades';
+import { formatadorInput } from '../../methods/metodos'
 
 export default function Simulador() {
-    // const [cidade, setCidade] = useState('');
+    const [cidadeSelect, setCidadeSelect] = useState('');
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -22,50 +22,15 @@ export default function Simulador() {
     const [simulation, setSimulation] = useState(true);
     const [bannerSimulation, setBannerSimulation] = useState(false);
     const [simulationExists, setSimulationExists] = useState(false);
-  
-    const formatarJuros = (valor) => {
-      const numerico = valor.replace(/[^0-9]/g, '');
-      const float = parseFloat(numerico) / 100;
-      return `${float.toFixed(2)}%`;
-    };
-  
-    const formatarValorMonetario = (valor) => {
-      const apenasNumeros = valor.replace(/\D/g, '');
-      const valorFloat = parseFloat(apenasNumeros) / 100;
-    
-      if (isNaN(valorFloat)) return 'R$ 0,00';
-    
-      return `R$ ${valorFloat.toLocaleString('pt-BR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}`;
-    };
-  
+
     async function handleSubmit(e) {
       e.preventDefault();
   
       try {
-          const dados = {
-            vlr_imovel : valorGarantia.replace('R$', '').replace('.', '').replace(',','.'),
-            valor_solicitado : valorSolicitado.replace('R$', '').replace('.', '').replace(',','.'),
-            juros : txJuros.replace('%', ''),
-            numero_parcelas : qtdParcelas,
-            carencia: carencia,
-            amortizacao: amortizacao
-          }
-          
-          var data = JSON.stringify(dados)
-          const result = await apiSimulation.post('/simulacao', data, {
-            headers: {'Content-Type': 'application/json'}
-          })
-  
-          var valorPrimeiraParcela = result.data.parcelas
-  
-          setPrimeiraParcela(valorPrimeiraParcela[3].parcela_final[0])
+          const simulation = new callSimulation(valorGarantia, valorSolicitado, txJuros, qtdParcelas, carencia, amortizacao);
+          const firtValue = await simulation.getSimulationPrimeiraParcela()
+          setPrimeiraParcela(firtValue)
           setCreateDeal(true)
-          // console.log(result.data.parcelas)
-  
-          
         }catch(e){
           alert('Ocorreu um erro na chamada da API', e)
         }
@@ -75,21 +40,20 @@ export default function Simulador() {
       e.preventDefault();
   
       try{
-        const ploomes = new createdContactCardAPI(email, nome, telefone);
+        const ploomes = new createdContactCardAPI(email, nome, telefone, valorGarantia, valorSolicitado, txJuros, qtdParcelas, carencia,  primeiraParcela, amortizacao, cidadeSelect);
         const createDeal = await ploomes.main()
-        setCreateDeal(false);
-        setSimulation(false);
-        setBannerSimulation(true);
-        setSimulationExists(createDeal);
+        setCreateDeal(false); // Banner para criar o card no ploomes some;
+        setSimulation(false); // Banner de simulação irá sumir;
+        setBannerSimulation(true); // Banner de simulação realizada irá aparecer;
+        setSimulationExists(createDeal); // Irá definir a mensagem de criação ou não do card;
       }catch(error){
         console.log('Erro na chamada de API', error)
       }
-  
     }
     
     return (
       <Conteiner>
-         <div className={`max-w-[1600px] w-full mx-auto p-8 rounded-2xl xsee:px-4 
+        <div className={`max-w-[1600px] w-full mx-auto p-8 rounded-2xl xsee:px-4 
           ${bannerSimulation ? 'block' : 'block xsee:flex'}
         `}>
           {simulation && 
@@ -100,12 +64,13 @@ export default function Simulador() {
             <p className="text-sm text-gray-600 text-center">
               Com poucos cliques, simule seu empréstimo com garantia de imóvel e descubra condições acessíveis.
             </p>
-            <BuscaCidades/>
+
+            <BuscaCidades onSelecionarCidade={(cidade) => setCidadeSelect(cidade)} />
             
             <label htmlFor="valorSolicitado" className="block text-sm font-medium text-gray-700">
               Valor do empréstimo
               <input
-                onChange={(e) => setValorSolicitado(formatarValorMonetario(e.target.value))}
+                onChange={(e) => setValorSolicitado(formatadorInput.formatarValorMonetario(e.target.value))}
                 type="text"
                 id="vlr_solicitado"
                 placeholder="R$ 75.000"
@@ -117,7 +82,7 @@ export default function Simulador() {
             <label htmlFor="valorGarantia" className="block text-sm font-medium text-gray-700">
               Valor do imóvel
               <input
-                onChange={(e) => setValorGarantia(formatarValorMonetario(e.target.value))}
+                onChange={(e) => setValorGarantia(formatadorInput.formatarValorMonetario(e.target.value))}
                 type="text"
                 placeholder="R$ 150.000"
                 value={valorGarantia}
@@ -128,7 +93,7 @@ export default function Simulador() {
             <label htmlFor="txJuros" className="block text-sm font-medium text-gray-700">
               Taxa de Juros
               <input
-                onChange={(e) => setTxJuros(formatarJuros(e.target.value))}
+                onChange={(e) => setTxJuros(formatadorInput.formatarJuros(e.target.value))}
                 type="text"
                 id="juros"
                 placeholder="1,19%"
@@ -208,10 +173,10 @@ export default function Simulador() {
                 className="w-full px-4 py-2 rounded-full bg-amber-50 text-gray-800 border focus:ring-2 focus:ring-blue-500"
               />
               <input
-                onChange={(e) => setTelefone(e.target.value)}
+                onChange={(e) => setTelefone(formatadorInput.formatandoTelefone(e.target.value))}
                 value={telefone}
                 type="tel"
-                placeholder="Telefone"
+                placeholder="(00) 00000-0000"
                 className="w-full px-4 py-2 rounded-full bg-amber-50 text-gray-800 border focus:ring-2 focus:ring-blue-500"
               />
   
@@ -294,4 +259,3 @@ export default function Simulador() {
       </Conteiner>
     );
 }
-  

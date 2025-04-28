@@ -2,7 +2,7 @@ import { FaPlus, FaTimes } from 'react-icons/fa';
 import { useState } from 'react';
 
 export function Title({ children, className = '', isStyle, isBold }) {
-  const baseStyle = isStyle ? 'mb-4 text-4xl xse:text-6xl md:text-8xl' : '';
+  const baseStyle = isStyle ? 'mb-4' : '';
   const BoldOrNot = isBold
     ? 'font-latoBold'
     : 'font-latoThin font-semibold';
@@ -32,13 +32,12 @@ export function Div({ children, className = '', isStyleRight }) {
   return <div className={`${baseStyle} ${className}`}>{children}</div>;
 }
 
-export function TitleSub({ children, className = '', isStyle, isBold }) {
-  const baseStyle = isStyle ? 'text-4xl md:text-8xl xl:text-9xl' : '';
+export function TitleSub({ children, className = '', isBold }) {
   const BoldOrNot = isBold
-    ? 'font-latoBold text-4xl md:text-8xl xl:text-9xl'
+    ? 'font-latoBold'
     : 'font-latoThin font-semibold';
   return (
-    <h2 className={`${baseStyle} ${BoldOrNot} ${className}`}>{children}</h2>
+    <h2 className={` ${BoldOrNot} ${className}`}>{children}</h2>
   );
 }
 
@@ -49,7 +48,8 @@ export function BlockMidia({ children, img, className = '' }) {
       <img
         src={img}
         alt="Imagem"
-        className="w-24 h-24 object-cover border-gray-300"
+        className="w-24 h-24 object-cover border-gray-300
+        md:w-36 md:h-36"
         width={100}
         height={480}
         loading="eager"
@@ -62,9 +62,9 @@ export function BlockMidia({ children, img, className = '' }) {
 }
 
 export function Paragrafo({ children, className = '', isStyle, isBold }) {
-  const baseStyle = isStyle ? 'mb-2 text-xl md:text-1xl xl:text-1xl' : '';
+  const baseStyle = isStyle ? 'mb-2 text-[17px] xse:text-xl md:text-2xl' : '';
   const BoldOrNot = isBold
-    ? 'font-latoBold text-xl md:text-1xl xl:text-1xl'
+    ? 'font-latoBold text-xl'
     : 'font-latoThin font-semibold';
   return (
     <p className={`${baseStyle} ${BoldOrNot} ${className} `}>{children}</p>

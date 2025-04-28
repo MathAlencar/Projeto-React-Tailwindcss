@@ -6,11 +6,3 @@ const apiSimulation = axios.create({
 
 export default apiSimulation;
 
-// const dados = {
-//     vlr_imovel : vlr_imovel,
-//     valor_solicitado : vlr_solicitado,
-//     juros : juros,
-//     numero_parcelas : nmr_parcelas,
-//     carencia: nmr_carencia,
-//     amortizacao: opt_amortizacao
-// }

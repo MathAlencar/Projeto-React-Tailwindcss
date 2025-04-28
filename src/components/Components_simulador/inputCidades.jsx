@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function BuscaCidades() {
+export default function BuscaCidades({ onSelecionarCidade }) {
   const [termo, setTermo] = useState("");
   const [resultados, setResultados] = useState([]);
   const debounceRef = useRef(null);
@@ -32,6 +32,7 @@ export default function BuscaCidades() {
   const handleSelecionarCidade = (cidade) => {
     const nomeCompleto = `${cidade.nome} - ${cidade.microrregiao.mesorregiao.UF.sigla}`;
     setTermo(nomeCompleto);
+    onSelecionarCidade(nomeCompleto);
     setResultados([]);
   };
 
@@ -66,3 +67,4 @@ export default function BuscaCidades() {
     </div>
   );
 }
+

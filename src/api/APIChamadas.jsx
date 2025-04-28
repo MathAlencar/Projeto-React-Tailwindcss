@@ -1,18 +1,27 @@
 
+import apiSimulation from "../services/axios";
 import apiPloomes from "../services/axiosPloomes";
-import apiIBGE from '../services/axiosCidades';
+import { formatadorInput } from '../methods/metodos'
 
 // o que falta?
 /*
-- Instalar o loadash para verificar as chaves json;
-- Colocar tanto o token, como o dia de espera em variáveis de ambiente;
+- Fazer as validações dos campos de valores atráves do front end;
 */
 
-export class createdContactCardAPI{
-    constructor(email, Name, PhoneNumber){
-        this.email = email,
-        this.Name = Name,
-        this.PhoneNumber = PhoneNumber
+export class createdContactCardAPI extends formatadorInput{
+    constructor(email, Name, PhoneNumber, vlr_imovel, vlr_solicitado, juros, nmr_parcelas, carencia, primeiraParcela, amortizacao, cidadeSelect){
+        super()
+        this.email = email;
+        this.Name = Name;
+        this.PhoneNumber = PhoneNumber;
+        this.vlr_imovel = vlr_imovel;
+        this.vlr_solicitado = vlr_solicitado;
+        this.juros = juros;
+        this.nmr_parcelas = nmr_parcelas;
+        this.carencia = carencia;
+        this.amortizacao = amortizacao;
+        this.primeiraParcela = primeiraParcela;
+        this.cidadeSelect = cidadeSelect;
         this.contactID = false;
     }
 
@@ -69,7 +78,7 @@ export class createdContactCardAPI{
             const response = await apiPloomes.get(`/Contacts?$filter=Email+eq+'${this.email}'&$select=Id,Name,Email`, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'User-Key': '661569F0F2BFBD31E9AC2AEE5B55C79F245AA394FAB35193A17D32654241CC4298F80D88A4C7C711FC1F2C7DCD6FBE147CB178B54213CB44E85895DAEC17BA18'
+                    'User-Key': import.meta.env.VITE_TOKEN_PLOOMES
                 }
             })
 
@@ -97,7 +106,7 @@ export class createdContactCardAPI{
             const contact = await apiPloomes.post('/Contacts', data, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'User-Key': '661569F0F2BFBD31E9AC2AEE5B55C79F245AA394FAB35193A17D32654241CC4298F80D88A4C7C711FC1F2C7DCD6FBE147CB178B54213CB44E85895DAEC17BA18'
+                    'User-Key': import.meta.env.VITE_TOKEN_PLOOMES
                 }
             })
             
@@ -122,7 +131,7 @@ export class createdContactCardAPI{
             const response = await apiPloomes.get(`/Deals?$select=Id,Title,PipelineId,StageId,Amount,StatusId,StartDate&$filter=ContactId eq ${this.contactID}`, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'User-Key': '661569F0F2BFBD31E9AC2AEE5B55C79F245AA394FAB35193A17D32654241CC4298F80D88A4C7C711FC1F2C7DCD6FBE147CB178B54213CB44E85895DAEC17BA18'
+                    'User-Key': import.meta.env.VITE_TOKEN_PLOOMES
                 }
             })
 
@@ -142,20 +151,60 @@ export class createdContactCardAPI{
     }
 
     // Irá criar um novo negócio atrelado ao Contato já existen/criado;
-    async createDeal(){
+    async createDeal(){ 
+        const teste = true;
+
+        if(this.amortizacao == 'SAC'){
+            this.amortizacao = 33896228
+        }
+
+        if(this.amortizacao == 'PRICE'){
+            this.amortizacao = 33896233
+        }
+
         try{
             const dados = {
-                Title: "Negócio gerado via API", // Receber Front-end;
+                Title: this.Name, // Receber Front-end;
                 ContactId: this.contactID, // Resolvido;
-                Amount: 5000, // Receber Front-end;
-                StageId: 1, // O funil usado;
-                PipelineId: 1 //
+                Amount: parseFloat(formatadorInput.tratandoValoresInput(this.vlr_solicitado)), // Receber Front-end;
+                StageId: 228324, // O funil usado;
+                PipelineId: 49228,
+                OtherProperties: [
+                    {
+                        FieldKey: import.meta.env.VITE_DEAL_ID_VALOR_IMOVEL,
+                        DecimalValue: parseFloat(formatadorInput.tratandoValoresInput(this.vlr_imovel))
+                    },
+                    {
+                        FieldKey: import.meta.env.VITE_DEAL_ID_PRIMEIRA_PARCELA,
+                        DecimalValue: this.primeiraParcela
+                    },
+                    {
+                        FieldKey: import.meta.env.VITE_DEAL_ID_VALOR_NMR_PARCELA,
+                        IntegerValue: this.nmr_parcelas
+                    },
+                    {
+                        FieldKey: import.meta.env.VITE_DEAL_ID_VALOR_SOLICITADO,
+                        DecimalValue: parseFloat(formatadorInput.tratandoValoresInput(this.vlr_solicitado))
+                    },
+                    {
+                        FieldKey: import.meta.env.VITE_DEAL_ID_CIDADE,
+                        StringValue: this.cidadeSelect
+                    },
+                    {
+                        FieldKey: import.meta.env.VITE_DEAL_ID_PROPRIETARIO,
+                        IntegerValue: teste ? 17265988 : 17265988
+                    },
+                    {
+                        FieldKey: import.meta.env.VITE_DEAL_ID_AMORTIZACAO,
+                        IntegerValue: this.amortizacao
+                    },
+                ]
             }
 
             const response = await apiPloomes.post('/Deals', dados, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'User-Key': '661569F0F2BFBD31E9AC2AEE5B55C79F245AA394FAB35193A17D32654241CC4298F80D88A4C7C711FC1F2C7DCD6FBE147CB178B54213CB44E85895DAEC17BA18'
+                    'User-Key': import.meta.env.VITE_TOKEN_PLOOMES
                 }
             })
 
@@ -179,17 +228,66 @@ export class createdContactCardAPI{
             var diffInMs = ActualDate - StartDate;
             const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
 
-            return diffInDays > 7.0 ? false : true;
+            return diffInDays > import.meta.env.VITE_DEAL_TEMPO ? false : true;
         }
     }
 }
 
-export class SearchCityAPI{
-    constructor() {}
+export class callSimulation extends formatadorInput{
+    constructor(vlr_imovel, vlr_solicitado, juros, nmr_parcelas, carencia, amortizacao){
+        super();
+        this.vlr_imovel = vlr_imovel;
+        this.vlr_solicitado = vlr_solicitado;
+        this.juros = juros;
+        this.nmr_parcelas = nmr_parcelas;
+        this.carencia = carencia;
+        this.amortizacao = amortizacao;
+        this.primeiraParcela = 0;
+    }
 
-    async searchCity(){
-        const result = await apiIBGE.get('/municipios')
-        return result;
+    async getSimulationPrimeiraParcela(){
+        try{
+            let dados = {
+                vlr_imovel : formatadorInput.tratandoValoresInput(this.vlr_imovel),
+                valor_solicitado : formatadorInput.tratandoValoresInput(this.vlr_solicitado),
+                juros : this.juros,
+                numero_parcelas : this.nmr_parcelas,
+                carencia: this.carencia,
+                amortizacao: this.amortizacao
+            }
+
+            dados = this.toJson(dados);
+            const result = await apiSimulation.post('/simulacao', dados, {
+                headers: {'Content-Type': 'application/json'}
+            })
+
+            this.takeValue(result)
+
+            return this.primeiraParcela
+    
+        }catch(e){
+            alert('Erro na chamada da API da simulção', e)
+        }
+        
+    }
+
+    toJson(valor){
+        return JSON.stringify(valor)
+    }
+
+    takeValue(response){
+        const parcelas = response.data.parcelas
+
+        if(this.carencia == 1){
+            this.primeiraParcela = parcelas[1].parcela_final[0]
+        }
+        if(this.carencia == 2){
+            this.primeiraParcela = parcelas[2].parcela_final[0]
+        }
+        if(this.carencia == 3){
+            this.primeiraParcela = parcelas[3].parcela_final[0]
+        }
+       
     }
 }
 

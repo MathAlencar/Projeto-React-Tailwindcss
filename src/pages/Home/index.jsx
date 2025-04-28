@@ -75,8 +75,14 @@ export default function Home() {
   ];
 
   return (
+    <>
     <Conteiner>
-        <BlocoAnimadoMotion className='xsee:flex xsee:flex-row-reverse xse:h-[]'>
+      <BlocoAnimadoMotion>
+        <div className='xsee:flex xsee:flex-row-reverse xse:h-[]
+        '
+        style={{
+          backgroundImage: "url('https://www.libracredito.com.br/images/bg-grafico.jpg?7c22351b9e98a0620d99556d12b6cea5')",
+      }}>
           <Div isStyleRight className="text-right xsee:flex xsee:justify-center xsee:pl-8">
             <Title isBold isStyle className="text-primary text-4xl xse:text-6xl md:text-7xl">
               Empréstimo com Garantia de imóvel
@@ -89,20 +95,27 @@ export default function Home() {
               SIMULE AGORA
             </Button>
           </Div>
-            <img
-                className="w-full h-[400px] z-10 xsee:h-[400px] xse:h-[550px] md:h-[700px] xs:h-[800px]"
-                src="/assets/img-pages/img-1-inicial.webp"
-                alt="Homem sorrindo com uma casa na mão"  
-                width={100}
-                height={480}
-                loading="eager"
-              />
-          
-      </BlocoAnimadoMotion>   
-          <BlocoAnimadoMotion className="
+          <img
+              className="w-full h-[400px] z-10 xsee:h-[400px] xse:h-[550px] md:h-[700px] xs:h-[800px]"
+              src="/assets/img-pages/img-1-inicial.webp"
+              alt="Homem sorrindo com uma casa na mão"  
+              width={100}
+              height={480}
+              loading="eager"
+            />
+      </div>
+      </BlocoAnimadoMotion>
+    </Conteiner>
+    <Conteiner withPadding={true}>
+      <BlocoAnimadoMotion>
+      <div className="
           xsee:flex 
           xse:h-[600px]
-          xs:h-[820px]">
+          xs:h-[820px]
+          " style={{
+            backgroundImage: "url('https://www.libracredito.com.br/images/elemento-1.png?636cda32fe29f8a0aa24a119acf9ccd8')",
+        }}>
+
         <Div isStyle className="text-center xsee:flex xsee:justify-center xsee:items-start xsee:text-left">
           <Title isStyle className="text-primary text-4xl
            xsee:text-5xl xsee:mb-8 
@@ -125,8 +138,14 @@ export default function Home() {
             height={480}
             loading="eager"
           />
-      </BlocoAnimadoMotion>   
-          <BlocoAnimadoMotion className="bg-primary-gray pt-4 pb-4 xsee:flex xsee:flex-row-reverse xse:h-[700px]">
+      </div>
+      </BlocoAnimadoMotion> 
+    </Conteiner>
+    <Conteiner>
+      <BlocoAnimadoMotion>
+        <div className="w-full pt-4 pb-4 xsee:flex xsee:flex-row-reverse xse:h-[700px]" style={{
+        backgroundImage: "url('https://www.libracredito.com.br/images/bg-grafico.jpg?7c22351b9e98a0620d99556d12b6cea5')",
+        }}>
         <TitleSub isStyle className="text-secondary-blue text-4xl ml-4 pr-16 
          xsee:text-5xl xsee:text-right xsee:pr-4
          xse:text-5xl
@@ -141,6 +160,7 @@ export default function Home() {
         <div className="p-4 w-[335px] bg-white rounded-r-[2.25rem] mt-8 mb-8
         xsee:w-[1200px] xsee:bg-primary-gray
         ">
+          
           <AnimatedBar
             TypeLabel
             label="CGI Libra:"
@@ -173,9 +193,16 @@ export default function Home() {
             barColorClass="bg-primary"
           />
         </div>
-      </BlocoAnimadoMotion>   
-        <BlocoAnimadoMotion className='xse:h-[700px] flex justify-center items-center'>
+      </div>
+      </BlocoAnimadoMotion> 
+    </Conteiner>
+    <Conteiner >
+        <BlocoAnimadoMotion>
+        <div className='xse:h-[700px] flex justify-center items-center' style={{
+            backgroundImage: "url('https://www.libracredito.com.br/images/bg-grafico.jpg?7c22351b9e98a0620d99556d12b6cea5')",
+          }}>
         <div>
+
         <Div isStyle className="
         xsee:items-start xsee:text-8xl
         ">
@@ -222,7 +249,10 @@ export default function Home() {
           </BlockMidia>
         </Div>
         </div>
-      </BlocoAnimadoMotion>  
+        </div>
+      </BlocoAnimadoMotion> 
+    </Conteiner>
+    <Conteiner>
        <BlocoAnimadoMotion className='xsee:flex xsee:flex-row-reverse 
        xsee:h-[600px]
        md:h-[780px]'>
@@ -259,6 +289,7 @@ export default function Home() {
           <div className=""></div>
         </div> 
       </BlocoAnimadoMotion>
+    </Conteiner>
       {/* <BlocoAnimadoMotion className="flex flex-col items-start">
         <div className="w-full p-4">
           <p className="text-4xl font-latoBold font-extrabold text-primary">
@@ -295,8 +326,8 @@ export default function Home() {
             </p>
           </Mensagem>
         </div>
-      </BlocoAnimadoMotion> */}
-      {/* <BlocoAnimadoMotion>
+      </BlocoAnimadoMotion> 
+       <BlocoAnimadoMotion>
         <Div isStyle className="text-left">
           <TitleSub isStyle className="text-primary text-6xl ml-4">
             Crédito com garantia de imóvel
@@ -348,8 +379,8 @@ export default function Home() {
             </Paragrafo>
           </BlockMidia>
         </Div>
-      </BlocoAnimadoMotion> */}
-      {/* <BlocoAnimadoMotion className="flex flex-col items-start">
+      </BlocoAnimadoMotion> 
+       <BlocoAnimadoMotion className="flex flex-col items-start">
         <TitleSub isStyle className="text-primary text-4xl m-8">
           Passo a passo para conseguir
           <span className="text-secondary-blue"> crédito barato</span>
@@ -366,7 +397,7 @@ export default function Home() {
         <StepSimulacao img={'/assets/img-pages/img-3-inicial.webp'} number="4">
           Proposta final e assinatura
         </StepSimulacao>
-      </BlocoAnimadoMotion> */}
-    </Conteiner>
+      </BlocoAnimadoMotion>  */}
+    </>
   );
 }
